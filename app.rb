@@ -11,8 +11,20 @@ end
 
 post('/') do
   name = params["name"]
-  item = Item.new(name)
+  rank = params["rank"]
+  item = Item.new(name, rank)
   item.save()
+  @list = Item.all()
+  erb(:list)
+end
+
+get('/items/:id') do
+  @item = Item.find(params[:id])
+  erb(:item)
+end
+
+get('/kittens/') do
+
   @list = Item.all()
   erb(:list)
 end
