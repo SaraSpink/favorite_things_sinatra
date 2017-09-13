@@ -30,6 +30,12 @@ class Item
       end
     end
   end
+
+  def self.sort()
+    item_rank = rank.to_i()
+    item_rank.sort
+  end
+
 end
 
 
